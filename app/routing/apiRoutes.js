@@ -52,10 +52,12 @@ app.post('/api/friends', function (req, res) {
     var lowestDiff = Math.min(...scoresArray)
     console.log(lowestDiff);
     var bestie = scoresArray.indexOf(lowestDiff);
-    console.log(users[bestie]);
   }
     users.push(currentUser);
-    res.json(users[bestie]);
+    // console.log(users[bestie]);
+    console.log(users, scoresArray);
+
+
 });
 };
 

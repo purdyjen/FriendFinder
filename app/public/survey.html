@@ -16,7 +16,10 @@
   <!-- Chosen -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
-
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -189,27 +192,6 @@
  
 <script>
 
-// Chosen CSS
-var config = {
-    ".chosen-select": {},
-    ".chosen-select-deselect": {
-      allow_single_deselect: true
-    },
-    ".chosen-select-no-single": {
-      disable_search_threshold: 10
-    },
-    ".chosen-select-no-results": {
-      no_results_text: "Oops, nothing found!"
-    },
-    ".chosen-select-width": {
-      width: "95%"
-    }
-  };
-
-  for (var selector in config) {
-    $(selector).chosen(config[selector]);
-  }
-
   // Capture the form inputs
   $("#submit").on("click", function(event) {
     event.preventDefault();
@@ -269,6 +251,8 @@ var config = {
   });
 
 </script>
+
+
 </body>
 
 </html>
