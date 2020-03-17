@@ -14,6 +14,4 @@ https://immense-taiga-31426.herokuapp.com/
 ## Link to Portfolio
 https://purdyjen.github.io/Responsive-Portfolio/
 
-## TROUBLESHOOTING ISSUES
 
-At this time, I have not been able to get the modal to pop up despite the data needed for it being returned.
