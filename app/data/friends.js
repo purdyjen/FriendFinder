@@ -1,14 +1,14 @@
-var friendsList = [
-    {
-      name: "John",
-      picture: "www.google.com",
-      answers: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
-    },
-    {
-      name: "Jane",
-      picture: "www.google.com",
-      answers: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-    }
-  ];
+var users = [
+  {
+    name: "John",
+    photo: "https://pixabay.com/images/id-593358/",
+    answers: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+  },
+  {
+    name: "Jane",
+    photo: "https://pixabay.com/images/id-677774/",
+    answers: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  }
+];
 
-  module.exports = friendsList;
+module.exports = users;

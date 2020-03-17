@@ -1,4 +1,4 @@
-var users = require('../data/friends.js')
+var users = require("../data/friends.js");
 
 var scoresArray = [];
 
@@ -21,44 +21,56 @@ var scoresArray = [];
 //       answers: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 //   }
 
-
 // findFriend();
 function apiRoutes(app) {
-app.get('/api/friends', function (req, res) {
+  app.get("/api/friends", function(req, res) {
     res.json(users);
-});
+  });
 
-
-app.post('/api/friends', function (req, res) {
+  app.post("/api/friends", function(req, res) {
     var currentUser = req.body;
+
+    var bestFriend = {
+      name: "",
+      photo: ""
+    };
     function findFriend() {
       var totalDifference = [];
-    for (var i = 0; i < users.length; i++) {
-      for (var j = 0; j < users[i].answers.length; j++) {
-        var difference = 0;
-        difference = Math.abs(
-          parseInt(users[i].answers[j]) - parseInt(currentUser.answers[j])
-        );
-        totalDifference.push(difference);
-      }
-      var sum = totalDifference.reduce(function(a, b) {
+      
+
+      for (var i = 0; i < users.length; i++) {
+        for (var j = 0; j < users[i].answers.length; j++) {
+          var difference = 0;
+          difference = Math.abs(
+            parseInt(users[i].answers[j]) - parseInt(currentUser.answers[j])
+          );
+          totalDifference.push(difference);
+        }
+        var sum = totalDifference.reduce(function(a, b) {
           return a + b;
         }, 0);
-      //   console.log(sum);
-      scoresArray.push(sum);
-      totalDifference = [];
-      // console.log(scoresArray);
+        //   console.log(sum);
+        scoresArray.push(sum);
+        totalDifference = [];
+        // console.log(scoresArray);
+      }
+      var lowestDiff = Math.min(...scoresArray);
+      console.log("lowest diff: " + lowestDiff);
+      var bestie = scoresArray.indexOf(lowestDiff);
+      bestFriend.name = users[bestie].name;
+      bestFriend.photo = users[bestie].photo;
+      console.log(bestFriend);
     }
-    var lowestDiff = Math.min(...scoresArray)
-    console.log(lowestDiff);
-    var bestie = scoresArray.indexOf(lowestDiff);
-  }
+    findFriend();
     users.push(currentUser);
+  
     // console.log(users[bestie]);
-    console.log(users, scoresArray);
+    
+    // console.log(bestFriend);
+    res.json(bestFriend);
+    // console.log(users, scoresArray);
 
-
-});
-};
+  });
+}
 
 module.exports = apiRoutes;
